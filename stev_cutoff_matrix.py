@@ -18,7 +18,7 @@ import numpy as np
 f = pd.read_csv(sys.argv[1], header = 0)
 temp = sys.argv[2]
 f['stdev'] = np.sqrt(f['Variance'])
-print(f.head())
+
 
 frames = []
 num_rows = f.shape[0]
@@ -31,6 +31,8 @@ new_df = pd.concat(frames, axis = 0)
 new_df.columns = ['gene', 'fitness', 'variance', 'stdev']
 new_df = new_df.set_index('gene')
 new_df.to_csv('../data/fitness_data/clean/stdev_cutoff_matrix_%s.csv' %temp)
+
+# changes for github
 
 
 
