@@ -22,14 +22,14 @@ all_genes <- rbind(all_genes, data.frame(genename8119[grep(pattern = 'Y', x = ge
 m3d_genes <- unique(all_genes$X2)
 
 length(intersect(m3d_genes, fitgenes$x))
-length(fitgenes$x[which(!fitgenes$x %in% intersect(allgenes, fitgenes$x))])  
+length(fitgenes$x[which(!fitgenes$x %in% intersect(m3d_genes, fitgenes$x))])  
 # allright I just tried looking for the genes based on which ones started with Y 
 # and I'm getting the exact same numbers so I think im just gonna leave this for 
 # now. the number of genes shared between datasets is the same even when I look at it differently
 # the only alternative is probably to try splicing them differently. 
 
 # there are 1305 genes missing in this expression dataset
-length(allgenes[which(!allgenes %in% fitgenes$x)])
+length(m3d_genes[which(!m3d_genes %in% fitgenes$x)])
 # 1090 of the m3d_genes are not represented in the fitness data
 
 write.table(genename5520[2], 'data/m3d_genes/g5520', quote = F, sep = '\t')
